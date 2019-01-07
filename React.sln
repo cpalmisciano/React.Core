@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "React03", "React03\React03.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "React04", "React04\React04.csproj", "{A60A1C66-F2E5-473C-A4E7-6201A47529D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "React.Common", "React.Common\React.Common.csproj", "{91B98D67-C65D-4EFF-9F1F-08D92033275D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "React.Common", "React.Common\React.Common.csproj", "{91B98D67-C65D-4EFF-9F1F-08D92033275D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
