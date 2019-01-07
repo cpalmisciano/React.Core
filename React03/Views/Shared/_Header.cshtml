@@ -1,0 +1,15 @@
+﻿<header class="header" role="banner">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow mb-3" style="padding:0px;">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">React.Core</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            @await Html.PartialAsync("_Nav")
+        }
+        else
+        {
+            @await Html.PartialAsync("_Login")
+        }
+        </div>
+    </nav>
+</header>

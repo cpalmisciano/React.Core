@@ -1,0 +1,10 @@
+﻿<footer>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>&copy; 2019 - React.Core - @User.Identity.Name</p>
+}
+else
+{
+    <p>&copy; 2019 - React.Core</p>
+}
+</footer>

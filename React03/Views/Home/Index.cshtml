@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles{
+    <style type="text/css">
+        /*Style form color - Home - Index*/
+        body {
+            background-color: azure;
+        }
+    </style>
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome Home - Index</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div id="home_root"></div>
+
+@await Html.PartialAsync("_Lorem")
+
+@section Scripts{
+    <script src="~/js/dist/vendor.bundle.js" asp-append-version="true"></script>
+    <script src="~/js/dist/home.bundle.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+// Script for Profile - Home - Index
+    </script>
+}

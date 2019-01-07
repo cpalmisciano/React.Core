@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "react.core",
+  "private": true,
+  "dependencies": {
+    "jquery": "3.3.1"
+  }
+}

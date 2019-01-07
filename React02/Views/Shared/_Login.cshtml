@@ -1,0 +1,39 @@
+﻿@model React.Common.Entities.UserInfo
+@section Styles
+{
+<link rel="stylesheet" href="~/css/_Login.css" />
+}
+<ul class="nav navbar-nav navbar-right" style="width: 150px;">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><span class="caret"></span></a>
+        <ul id="login-dp" class="dropdown-menu" style="width: 200px; padding: 5px;">
+            <li>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form" role="form" accept-charset="UTF-8" asp-area="" asp-controller="Home" asp-action="Login"
+                              asp-route-returnUrl="@Context.Request.Query["returnUrl"]">
+                            <div class="form-group">
+                                <label class="sr-only">User Name</label>
+                                <input type="text" class="form-control" id="UserName" placeholder="Username" asp-for="UserName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Password</label>
+                                <input type="password" class="form-control" id="Password" placeholder="Password" asp-for="Password" required>
+                                <div class="help-block text-right"><a href="">Forgot password ?</a></div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember Me
+                                </label>
+                            </div>
+                            @Html.AntiForgeryToken()
+                        </form>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>

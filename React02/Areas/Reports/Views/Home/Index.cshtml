@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Index";
+}
+@section Styles{
+    <style type="text/css">
+        /*Style form color-reports - Home - Index*/
+        body {
+            background-color: darkgrey;
+        }
+    </style>
+}
+<div class="text-center">
+    <h1 class="display-4">Reports - Home - Index</h1>
+</div>
+
+@await Html.PartialAsync("_Lorem")
+
+<div id="reports_root"></div>
+@section Scripts{
+    <script type="text/javascript">
+            // Script for Reports - Home - Index
+    </script>
+}
