@@ -1,59 +1,34 @@
 ﻿window.site = (function () {
-    'use strict';
+    "use strict";
+    var $ = jQuery.noConflict();
 
-    let rooturl = '';
-    let addListeners = function () {
+    var c, currentScrollTop = 0, $header = $('header');
 
-    };
+    var addListeners = function () {
 
-    let hideNav = function (document, window, index) {
-        let elSelector = 'nav',
-            element = document.querySelector(elSelector);
+        $(window).scroll(function () {
+            var a = $(window).scrollTop();
+            var b = $header.height();
 
-        if (!element) return true;
+            currentScrollTop = a;
 
-        let elHeight = 0,
-            elTop = 0,
-            dHeight = 0,
-            wHeight = 0,
-            wScrollCurrent = 0,
-            wScrollBefore = 0,
-            wScrollDiff = 0;
-
-        window.addEventListener('scroll', function () {
-            elHeight = element.offsetHeight;
-            dHeight = document.body.offsetHeight;
-            wHeight = window.innerHeight;
-            wScrollCurrent = window.pageYOffset;
-            wScrollDiff = wScrollBefore - wScrollCurrent;
-            elTop = parseInt(window.getComputedStyle(element).getPropertyValue('top')) + wScrollDiff;
-
-            if (wScrollCurrent <= 0)
-                element.style.top = '0px';
-
-            else if (wScrollDiff > 0)
-                element.style.top = (elTop > 0 ? 0 : elTop) + 'px';
-
-            else if (wScrollDiff < 0) {
-                if (wScrollCurrent + wHeight >= dHeight - elHeight)
-                    element.style.top = ((elTop = wScrollCurrent + wHeight - dHeight) < 0 ? elTop : 0) + 'px';
-
-                else
-                    element.style.top = (Math.abs(elTop) > elHeight ? -elHeight : elTop) + 'px';
+            if (c < currentScrollTop && a > b + b) {
+                $header.addClass("scrollUp");
+            } else if (c > currentScrollTop && !(a <= b)) {
+                $header.removeClass("scrollUp");
             }
-
-            wScrollBefore = wScrollCurrent;
+            c = currentScrollTop;
         });
+
     };
 
-    let _init = function () {
+    var _init = function () {
         addListeners();
-        hideNav(document, window, 0);
     };
-
     return {
-        setRootUrl: function (value) { rooturl = value; },
-        getRootUrl: function () { return rooturl; },
         init: _init
     };
 }());
+
+//auto init
+jQuery(function () { window.site.init(); });
