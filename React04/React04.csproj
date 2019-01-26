@@ -2,32 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <AspNetCoreModuleName>AspNetCoreModule</AspNetCoreModuleName>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <AssemblyName>React.Core</AssemblyName>
   </PropertyGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="package.json" />
-    <_ContentIncludedByDefault Remove="Views\Shared\_Footer.cshtml" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
-
 
   <ItemGroup>
-    <Folder Include="Areas\Profile\Data\" />
-    <Folder Include="Areas\Profile\Models\" />
-    <Folder Include="Areas\Reports\Data\" />
-    <Folder Include="Areas\Reports\Models\" />
-    <Folder Include="Models\" />
-    <Folder Include="src\components\" />
+    <ProjectReference Include="..\React.Common\React.Common.csproj" />
   </ItemGroup>
-
 
   <ItemGroup>
     <Content Update="package.json">
@@ -76,19 +64,27 @@
 
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\_Header.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Footer.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\_Header.cshtml" />
     <UpToDateCheckInput Remove="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
 
-
   <ItemGroup>
-    <ProjectReference Include="..\React.Common\React.Common.csproj" />
+    <Folder Include="Areas\Profile\Data\" />
+    <Folder Include="Areas\Profile\Models\" />
+    <Folder Include="Areas\Reports\Data\" />
+    <Folder Include="Areas\Reports\Models\" />
+    <Folder Include="src\components\" />
   </ItemGroup>
-
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
-    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptModuleKind></TypeScriptModuleKind>
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
@@ -102,7 +98,7 @@
   </PropertyGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition="'$(Configuration)' == 'Debug' And !Exists('node_modules')">
-    <Exec Command="echo Got Here (DebugEnsureNodeEnv)" />
+    <Exec Command="echo React.Core(04) (DebugEnsureNodeEnv)" />
 
     <Exec Command="node --version" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
@@ -113,27 +109,17 @@
     <Exec Command="npm install" />
   </Target>
 
-  <!--<Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
-    <Exec Command="echo Got Here (DebugRunWebpack)" />
-    <Exec Command="node node_modules/webpack/bin/webpack.js" />
-  </Target>-->
-
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
-    <!--<Message Importance="high" Text="Message DebugRunWebpack" />-->
-    <Exec Command="echo Got Here (DebugRunWebpack)" />
+    <Exec Command="echo React.Core(04) (DebugRunWebpack)" />
     <Exec Command="npm run-script build.dev" />
   </Target>
-
-  <!--<Target Name="DebugRunWebpack2" AfterTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
-    <Exec Command="echo Got Here (DebugRunWebpack 2)" />
-  </Target>-->
 
   <Target Name="ReleaseRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
     <Exec Command="npm run-script build.prod" />
   </Target>
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish" Condition="'$(Configuration)' == 'Debug'">
-    <Exec Command="echo Got Here (PublishRunWebpack)" />
+    <Exec Command="echo React.Core(04) (PublishRunWebpack)" />
 
     <Exec Command="npm install" />
     <Exec Command="npm run-script build.prod" />

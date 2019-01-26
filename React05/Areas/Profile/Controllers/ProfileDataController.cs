@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using React.Common.Base;
 
-namespace React04.Areas.Profile.Controllers
+namespace React.Core.Areas.Profile.Controllers
 {
     [Area("Profile")]
     [Route("Profile/api/[controller]/[action]")]

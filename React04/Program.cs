@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 
-namespace React04
+namespace React.Core
 {
     public class Program
     {

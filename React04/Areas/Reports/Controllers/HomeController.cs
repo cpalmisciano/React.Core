@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using React.Common.Base;
 
-namespace React04.Areas.Reports.Controllers
+namespace React.Core.Areas.Reports.Controllers
 {
     [Area("Reports")]
     public class HomeController : BaseController

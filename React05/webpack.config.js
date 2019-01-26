@@ -1,8 +1,10 @@
 ﻿"use strict";
 
 const path = require('path');
+const __home = path.resolve(__dirname, '');
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: {
@@ -12,17 +14,17 @@ module.exports = {
         'vendor': ['react', 'react-dom'],
         'router': ['react-router-bootstrap', 'react-router-dom']
     },
-    output: {
-        path: path.resolve(__dirname, './wwwroot/js/dist'),
-        publicPath: "/dist/",
-        filename: '[name].bundle.js'
-    },
     module: {
         rules: [
             {
                 test: /\.(css|scss)$/,
                 //exclude: /node_modules/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: [
+                    'style-loader', MiniCssExtractPlugin.loader, 'css-loader',
+                    {
+                        loader: "sass-loader"
+                    }
+                ]
             },
             {
                 test: /\.(js|jsx)$/,
@@ -33,8 +35,13 @@ module.exports = {
             }
         ]
     },
+    output: {
+        path: path.resolve(__dirname, './wwwroot/'),
+        publicPath: "/dist/",
+        filename: './js/[name].bundle.js'
+    },
     resolve: {
-        extensions: ['.js', '.jsx', '.json']
+        extensions: ['.js', '.jsx', '.scss', '.json']
     },
     devtool: "inline-source-map",
     optimization: {
@@ -46,10 +53,16 @@ module.exports = {
         //new webpack.DefinePlugin({
         //    "process.env": {
         //        NODE_ENV: JSON.stringify("development"),
-        //        PUBLIC_URL: "https://localhost/React03"
+        //        PUBLIC_URL: "https://localhost/React05"
         //    }
         //}),
         new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.optimize.ModuleConcatenationPlugin()
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "./css/[name].css",
+            chunkFilename: "[id].css"
+        })
     ]
 };

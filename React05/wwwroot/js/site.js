@@ -1,4 +1,33 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿window.site = (function () {
+    "use strict";
+    var c, currentScrollTop = 0;
+    var header = document.getElementById('header');
 
-// Write your JavaScript code.
+    var addListeners = function () {
+
+        window.onscroll = function () {
+            var a = window.scrollY;
+            var b = header.offsetHeight;
+
+            currentScrollTop = a;
+
+            if (c < currentScrollTop && a > b + b) {
+                header.classList.add("scrollUp");
+            } else if (c > currentScrollTop && !(a <= b)) {
+                header.classList.remove("scrollUp");
+            }
+            c = currentScrollTop;
+        };
+    };
+
+    var _init = function () {
+        addListeners();
+    };
+
+    return {
+        init: _init
+    };
+}());
+
+//auto init
+window.site.init();

@@ -1,0 +1,105 @@
+﻿/* Left Drawer
+ ------------------------------------------*/
+
+#sidedrawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 240px;
+    left: -200px;
+    overflow: auto;
+    transition: transform 0.2s;
+    z-index: 1000;
+}
+
+#content-wrapper {
+    min-height: 100%;
+    overflow-x: hidden;
+    margin-left: 0px;
+    transition: margin-left 0.2s;
+    /* sticky bottom */
+    box-sizing: border-box;
+}
+
+
+@media (min-width: 768px) {
+    header {
+        left: 200px;
+    }
+
+    #sidedrawer {
+        transform: translate(200px);
+    }
+
+    #content-wrapper {
+        margin-left: 200px;
+    }
+
+    body.hide-sidedrawer header {
+        left: 0;
+    }
+
+    body.hide-sidedrawer #sidedrawer {
+        transform: translate(0px);
+    }
+
+    body.hide-sidedrawer #content-wrapper {
+        margin-left: 0;
+    }
+}
+
+
+/**
+ * Toggle Sidedrawer
+ */
+#sidedrawer.active {
+    transform: translate(200px);
+}
+
+.sidedrawer-toggle {
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.sidedrawer-toggle:hover {
+    text-decoration: none;
+}
+
+
+/**
+ * Sidedrawer CSS
+ */
+
+#sidedrawer-brand {
+    background-color: aliceblue;
+    height: 42px;
+}
+
+#sidedrawer ul {
+    list-style: none;
+    background-color: #fff;
+    width: 200px;
+}
+
+#sidedrawer > ul {
+    padding-left: 0px;
+}
+
+#sidedrawer > ul > li:first-child {
+    padding-top: 15px;
+}
+
+#sidedrawer strong {
+    display: block;
+    padding: 15px 22px;
+    cursor: pointer;
+}
+
+#sidedrawer strong:hover {
+    background-color: #E0E0E0;
+}
+
+#sidedrawer strong + ul > li {
+    padding: 6px 0px;
+}

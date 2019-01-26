@@ -4,7 +4,7 @@ using React.Common.Base;
 using React.Common.Entities;
 using System.Threading.Tasks;
 
-namespace React04.Controllers
+namespace React.Core.Controllers
 {
     public class HomeController : BaseController
     {

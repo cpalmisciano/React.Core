@@ -11,17 +11,18 @@
         }
     </style>
 }
-<div class="text-center">
-    <h1 class="display-4">Profile - Home - Index</h1>
+<div style="margin: 20px; margin-top: 0;">
+    <div class="text-center">
+        <h1 class="display-4">Profile - Home - Index</h1>
+    </div>
+    <div id="profile_root"></div>
+
+    @await Html.PartialAsync("_Lorem")
 </div>
-<div id="profile_root"></div>
-
-@await Html.PartialAsync("_Lorem")
-
 @section Scripts{
     <script src="~/js/dist/vendor.bundle.js" asp-append-version="true"></script>
     <script src="~/js/dist/profile.bundle.js" asp-append-version="true"></script>
     <script type="text/javascript">
-                            // Script for Profile - Home - Index
+                                    // Script for Profile - Home - Index
     </script>
 }

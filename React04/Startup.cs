@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using React.Common.Entities;
 
-namespace React04
+namespace React.Core
 {
     public class Startup
     {
